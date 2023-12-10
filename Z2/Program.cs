@@ -3,23 +3,23 @@
 // m = 2, n = 3 -> A(m,n) = 9
 // m = 3, n = 2 -> A(m,n) = 29
 
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-
-int functionAkkerman = Ack(m, n);
-
-Console.Write($"Функция Аккермана = {functionAkkerman} ");
-
-int Ack(int m, int n)
+int ReadInt(string str)
 {
-  if (m == 0) return n + 1;
-  else if (n == 0) return Ack(m - 1, 1);
-  else return Ack(m - 1, Ack(m, n - 1));
+    System.Console.Write(str);
+    return Convert.ToInt32(Console.ReadLine());
 }
+int m = ReadInt("Введите m: ");
+int n = ReadInt("Введите n: ");
+Console.Write("Функция Аккермана =  ");
 
-int InputNumbers(string input) 
+Console.WriteLine(FunctionAkkerman(m, n));
+static int FunctionAkkerman(int m, int n)
 {
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
-}
+    if(m == 0)
+    return (n + 1);
+    if(m > 0 && n == 0)
+    return FunctionAkkerman(m - 1, 1);
+    if(m > 0 && n > 0) 
+    return FunctionAkkerman(m - 1, FunctionAkkerman(m, n - 1));
+    return 0;
+} 
