@@ -15,7 +15,7 @@ void PrintNumbers(int M, int N)
 }
 
 // ----------------------
-int M = ReadInt("Введите значени больше 0: ");
-int N = ReadInt("Введите значени больше предыдущего: ");
+int M = ReadInt("Введите значение больше 0: ");
+int N = ReadInt("Введите значение больше предыдущего: ");
 PrintNumbers(M, N);
 
