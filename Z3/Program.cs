@@ -1,24 +1,22 @@
 ﻿// Задача 3: Задайте произвольный массив. Выведете его элементы, начиная с конца. 
 // Использовать рекурсию, не использовать циклы.
 
-int[] numbers = {1, 3, 5, 6, 7, 8}; 
-int temp;
+int[] originalArray = {1, 2, 5, 0, 10, 34}; 
 
 Console.Write("Исходный массив: ");
-foreach (int number in numbers)
+foreach (int number in originalArray)
 {
 Console.Write(number + " ");
 }
-
-
-for (int i = 0; i < numbers.Length / 2; i++)
+void PrintBacknumbers(int[] originalArray, int i)
 {
-temp = numbers[i];
-numbers[i] = numbers[numbers.Length - 1 - i];
-numbers[numbers.Length - 1 - i] = temp;
+
+    Console.Write(originalArray[i] + " ");
+    if(i > 0)
+    PrintBacknumbers(originalArray, i - 1);
+    return;
+
 }
 Console.Write("\nПеревернутый массив: ");
-foreach (int number in numbers)
-
-Console.Write(number + " ");
-
+PrintBacknumbers(originalArray, originalArray.Length - 1);
+  
